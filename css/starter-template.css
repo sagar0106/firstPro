@@ -1,0 +1,118 @@
+html{min-height: 100% !important; position: relative; height: auto !important;}
+body {padding:0 0 20px 0; font-size:14px; font-family:arial; color:#333; margin: 0 0 50px !important;}
+	a{outline:none; border:0px;}
+.container {
+    width: 96%;
+}
+.navbar-brand {padding: 10px 0px 10px 2%;float: left;width:20%;}
+.span-center-header{text-align:center;width:60%;float: left;font-size:22px; color:#fff; padding-top:13px;}
+.span-center-header em{font-style:normal; display:table; font-size:14px; padding-top: 5px;text-align: center;width: 100%;}
+.navbar-brand2 {padding: 10px 2% 10px 0px;float: right;width:20%;}
+.starter-template {padding: 3rem 1.5rem; text-align: center;}
+.fixed-top{background-color: #098fb6 !important;border-color: #077696 !important;border-radius: 0px;}
+.navbar-brand img{width:240px;}
+.navbar-brand2 img{width: 130px;float: right;}
+.content-main-box{width:100%; display:table; margin:5px 0px;}
+  
+ 
+  
+.footer{position: absolute; bottom: 0; left:0; overflow:hidden; height:50px; line-height: 50px; background: #fff; font-size: 16px; color: #333; width: 100%; border-top:1px solid #d2d2d2;}
+.footer-text{width:96%; color:#333; font-size:14px; display:table; text-align:left; margin:0 auto;}
+.footer-text span{text-align:right;float: right;}
+ 
+.box{border: 1px solid #f2f2f2;background: #f8f8f8; width:100%; display:table; padding: 15px 15px 0px 15px; margin-bottom: 30px;}
+.box-inner{border:1px solid #ececec;background: #fff; width:100%; display: inline-block; padding:15px;min-height: 335px; margin-bottom:20px;}
+.box-inner p{font-size:14px; color:#333; line-height:22px; padding:0 0 18px 0; text-align:justify; margin:0px;}
+.padding-left-0px{padding-left: 0px;}
+.padding-right-0px{padding-right: 0px;} 
+
+#pie .dx-export-menu-button rect{
+    transform: translate(107px,0px);
+    -ms-transform: translate(107px,0px); /* IE 9 */
+    -webkit-transform: translate(107px,0px); /* Safari and Chrome */
+    -o-transform: translate(107px,0px); /* Opera */
+    -moz-transform: translate(107px,0px); /* Firefox */
+    }
+    #pie .dx-export-menu-button path{
+        transform: translate(107px,0px);
+        -ms-transform: translate(107px,0px); /* IE 9 */
+        -webkit-transform: translate(107px,0px); /* Safari and Chrome */
+        -o-transform: translate(107px,0px); /* Opera */
+        -moz-transform: translate(107px,0px); /* Firefox */
+        }
+        #pie .dx-export-menu-list rect{
+            transform: translate(107px,0px);
+            -ms-transform: translate(107px,0px); /* IE 9 */
+            -webkit-transform: translate(107px,0px); /* Safari and Chrome */
+            -o-transform: translate(107px,0px); /* Opera */
+            -moz-transform: translate(107px,0px); /* Firefox */
+        }
+        #pie .dx-export-menu-list-item rect{
+            transform: translate(107px,0px);
+            -ms-transform: translate(107px,0px); /* IE 9 */
+            -webkit-transform: translate(107px,0px); /* Safari and Chrome */
+            -o-transform: translate(107px,0px); /* Opera */
+            -moz-transform: translate(107px,0px); /* Firefox */
+        }
+        #pie .dx-export-menu-list-item text{
+            transform: translate(107px,0px);
+            -ms-transform: translate(107px,0px); /* IE 9 */
+            -webkit-transform: translate(107px,0px); /* Safari and Chrome */
+            -o-transform: translate(107px,0px); /* Opera */
+            -moz-transform: translate(107px,0px); /* Firefox */
+        }
+        #pie .dx-export-menu-list-item path{
+            transform: translate(107px,0px);
+            -ms-transform: translate(107px,0px); /* IE 9 */
+            -webkit-transform: translate(107px,0px); /* Safari and Chrome */
+            -o-transform: translate(107px,0px); /* Opera */
+            -moz-transform: translate(107px,0px); /* Firefox */
+        }
+
+
+
+
+        #doughnut .dx-export-menu-button rect{
+            transform: translate(90px,0px);
+            -ms-transform: translate(90px,0px); /* IE 9 */
+            -webkit-transform: translate(90px,0px); /* Safari and Chrome */
+            -o-transform: translate(90px,0px); /* Opera */
+            -moz-transform: translate(90px,0px); /* Firefox */
+            }
+            #doughnut .dx-export-menu-button path{
+                transform: translate(90px,0px);
+                -ms-transform: translate(90px,0px); /* IE 9 */
+                -webkit-transform: translate(90px,0px); /* Safari and Chrome */
+                -o-transform: translate(90px,0px); /* Opera */
+                -moz-transform: translate(90px,0px); /* Firefox */
+                }
+                #doughnut .dx-export-menu-list rect{
+                    transform: translate(90px,0px);
+                    -ms-transform: translate(90px,0px); /* IE 9 */
+                    -webkit-transform: translate(90px,0px); /* Safari and Chrome */
+                    -o-transform: translate(90px,0px); /* Opera */
+                    -moz-transform: translate(90px,0px); /* Firefox */
+                }
+                #doughnut .dx-export-menu-list-item rect{
+                    transform: translate(90px,0px);
+                    -ms-transform: translate(90px,0px); /* IE 9 */
+                    -webkit-transform: translate(90px,0px); /* Safari and Chrome */
+                    -o-transform: translate(90px,0px); /* Opera */
+                    -moz-transform: translate(90px,0px); /* Firefox */
+                }
+                #doughnut .dx-export-menu-list-item text{
+                    transform: translate(90px,0px);
+                    -ms-transform: translate(90px,0px); /* IE 9 */
+                    -webkit-transform: translate(90px,0px); /* Safari and Chrome */
+                    -o-transform: translate(90px,0px); /* Opera */
+                    -moz-transform: translate(90px,0px); /* Firefox */
+                }
+                #doughnut .dx-export-menu-list-item path{
+                    transform: translate(90px,0px);
+                    -ms-transform: translate(90px,0px); /* IE 9 */
+                    -webkit-transform: translate(90px,0px); /* Safari and Chrome */
+                    -o-transform: translate(90px,0px); /* Opera */
+                    -moz-transform: translate(90px,0px); /* Firefox */
+                }
+
+     

@@ -1,0 +1,25 @@
+<div class="container">
+    <br>
+    <br>
+    <h1>Manage Users</h1>
+    <!-- <button class="btn btn-primary navbar-right" ng-click="add()">Add</button> -->
+    <a class="navbar-right" href="#register"><i class="fa fa-fw fa-user"></i> Add</a>
+    <table class="table">
+        <!-- <td><button class="btn btn-primary" ng-click="add()">Add</button></td> -->
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Action</th>
+                <!-- <th>&nbsp;</th> -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="user in userList">
+                <td><a href="#users/{{user._id}}">{{user.firstname}}</a></td>
+                <td><button class="btn btn-danger" ng-click="remove(user._id)">Remove</button></td>
+                <!-- <td><button class="btn btn-warning" ng-click="edit(user._id)">Edit</button></td> -->
+            </tr>
+        </tbody>
+    </table>
+
+</div>

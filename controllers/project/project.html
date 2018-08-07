@@ -1,0 +1,28 @@
+<div class="container">
+    <br>
+    <br>
+    <h1>Project List</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Action</th>
+                <th>&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input class="form-control" ng-model="item.title"></td>
+                <td><button class="btn btn-primary" ng-click="add()">Add/Update</button></td>
+                <td><button class="btn btn-info" ng-click="deselect()">Clear</button></td>
+            </tr>
+            <tr ng-repeat="item in itemList">
+                <td><a href="#projects/{{item._id}}">{{item.title}}</a></td>
+                <td><button class="btn btn-danger" ng-click="remove(item._id)">Remove</button></td>
+                <td><button class="btn btn-warning" ng-click="edit(item._id)">Edit</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

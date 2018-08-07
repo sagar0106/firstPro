@@ -1,0 +1,72 @@
+body{margin: 0px; padding: 0px;font-family: arial;}
+
+#form_login {
+    margin: 0 auto;
+    padding: 0px;
+	width:400px;
+	display: table;
+    background: #f5f5f5;
+}
+.login-heading{
+	width: 100%;
+	display: table;
+	padding: 7px 20px;
+	background: #385796;
+	font-size: 22px;
+	text-align: left;
+	color: #fff;
+	box-sizing: border-box;
+	font-family: arial;
+	margin: 0px;
+	border-radius: 4px 4px 0px 0px;
+}
+.login-page-details-bx{padding: 10px 20px 20px 20px;display: table;width: 100%;box-sizing: border-box;border: 1px solid #ccc;border-radius: 0px 0px 4px 4px; border-top:0px;}
+.login-page-details-bx label{width:100%; display: table; font-size: 14px; font-weight: 600; margin: 0px; padding-bottom: 2px;}
+.login-page-details-bx input{width:100%; display: table; box-sizing: border-box; font-size: 14px; font-weight: normal; margin: 0px;border: 1px solid #ccc; border-radius: 4px; padding: 10px 10px;}
+.login-btton{float: left; margin: 10px 0 0 0; padding: 0px;}
+.login-forgot-pass-text{float: right; margin: 17px 0 0 0; padding: 0px; text-align: right; }
+.login-btton button{background: #385796; padding: 5px 15px 5px 15px; cursor: pointer; color: #fff; font-size: 15px; border: 1px solid #385796; border-radius: 4px;}
+.login-btton button:hover{background: #214389;border: 1px solid #214389;}
+.login-forgot-pass-text a{font-size: 14px; font-weight: 600; color: #333; text-decoration: underline;}
+.login-forgot-pass-text a:hover{ text-decoration: none; color: #385796;}
+
+.login-bttonCancel{float: left; margin: 10px 0 0 0; padding: 0px;}
+.login-bttonCancel button{background: #5A5A5A; padding: 5px 15px 5px 15px; cursor: pointer; color: #fff; font-size: 15px; border: 1px solid #5A5A5A; border-radius: 4px;}
+.login-bttonCancel button:hover{background: #333;border: 1px solid #333;}
+
+.save-btn{float: left; margin: 10px 0 0 0; padding: 0px;}
+.save-btn button{background: #5cb85c; padding: 5px 15px 5px 15px; cursor: pointer; color: #fff; font-size: 15px; border: 1px solid #4cae4c; border-radius: 4px;}
+.save-btn button:hover{background: #4cae4c;border: 1px solid #4cae4c;}
+
+.profile-main-bx{width:60%; margin: 2% auto;}
+.profile-contact-bx-marginZero{margin-bottom: 10px !important;}
+.profile-contact-bx-1{width:100%;margin-bottom: 30px; display: table; position: relative; padding: 20px 15px 20px 15px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 3px;}
+.profile-checkbox-bx-1{width:10%;margin-bottom: 30px; display: table; position: relative; padding: 20px 15px 20px 15px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 3px;}
+.profile-contact-bx-1 h2{
+	position: absolute;
+	left: 10px;
+	top: -13px;
+	z-index: 999;
+	font-size: 19px;
+	color: #333;
+	padding: 0 5px 0 5px;
+	margin: 0px;
+	background: #fff;
+}
+.form-box-111{width:99%; margin: 0 auto;}
+.form-box-111 label{width:100%; display: table; padding-bottom: 2px;font-size: 13px; font-weight: 600;color: #333;}
+.form-box-111 input{width:100%; display: table; box-sizing: border-box; font-size: 13px; font-weight: normal; margin: 0px 0 15px 0;border: 1px solid #d4d4d4; border-radius: 4px; padding: 8px 10px;}
+.form-box-111 select{width:100%; display: table; box-sizing: border-box; font-size: 13px; font-weight: normal; margin: 0px 0 15px 0;border: 1px solid #d4d4d4; border-radius: 4px; padding: 8px 8px;}
+.contact-left-box-perfeqta{width:50%;padding-left: 5px; float: left; padding-right: 20px; border-right: 1px solid #ccc; box-sizing: border-box;}
+.contact-left-box-perfeqta span{width:100%; display: table; margin-bottom: 10px;font-size: 15px; font-weight: 600;border-bottom: 1px solid #e1e1e1;padding-bottom: 5px}
+.contact-right-box-perfeqta{width:50%;padding-right: 5px; float: right; padding-left: 20px;  box-sizing: border-box;}
+.contact-right-box-perfeqta span{width:100%; display: table; margin-bottom: 10px;font-size: 15px; font-weight: 600;border-bottom: 1px solid #e1e1e1;padding-bottom: 5px}
+
+.contact-left-box-perfeqta label{width:100%; display: table; padding-bottom: 2px;font-size: 13px; font-weight: 600;color: #333;}
+.contact-left-box-perfeqta input{width:100%; display: table; box-sizing: border-box; font-size: 13px; font-weight: normal; margin: 0px 0 15px 0;border: 1px solid #d4d4d4; border-radius: 4px; padding: 8px 10px;}
+.contact-right-box-perfeqta label{width:100%; display: table; padding-bottom: 2px;font-size: 13px; font-weight: 600;color: #333;}
+.contact-right-box-perfeqta input{width:100%; display: table; box-sizing: border-box; font-size: 13px; font-weight: normal; margin: 0px 0 15px 0;border: 1px solid #d4d4d4; border-radius: 4px; padding: 8px 10px;}
+.loginError{color:red;text-align: left; font-size: 13px;}
+.paddingTop{padding-top: 10px;}
+
+

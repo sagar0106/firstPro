@@ -1,0 +1,42 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<nav ng-controller="NavBarController as vm" class="navbar navbar-inverse navbar-fixed-top main-header" role="navigation">
+    <!-- Brand and toggle get mobile display -->
+    <div class="navbar-header" ng-init="menuOpen = false">
+        <!-- <a class="navbar-brand" href="#/login"><img src="images/salesforce_logo.png" alt="" /></a> -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+    </div>
+
+    <ul class="nav navbar-right top-nav" style="cursor: pointer;" ng-mouseleave="menuOpen = vm.setMenuclose()" ng-click="menuOpen = !menuOpen">
+        <li class="dropdown" ng-class="{'open' : menuOpen}">
+            <a class="dropdown-toggle" data-toggle="dropdown"><i class="user-img"><img src="images/default.png" alt=""/></i>&nbsp; {{$root.user.firstname || 'User Name' }} <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+
+                <li><a href="#users/{{$root.user._id}}"><i class="fa fa-fw fa-user"></i> My Profile</a></li>
+                <li><a ng-if="$root.user.role=='Admin'" href="#users"><i class="fa fa-fw fa-users"></i> Manage Users</a></li>
+                <li><a ng-if="$root.user.role=='Admin'" href="#managePermissions"><i class="fa fa-fw fa-users"></i> Manage Permissions</a></li>
+                <li class="divider"></li>
+                <li><a ng-click="vm.logout()"><i class="fa fa-fw fa-power-off"></i> Sign Out</a></li>
+
+            </ul>
+        </li>
+    </ul>
+    <div class="subnavigation" ng-if="$root.user.role=='SuperAdmin'">
+        <ul>
+            <li ng-click="vm.Redirect('pivot')" ng-if="$root.user.role=='SuperAdmin'">
+                <a ng-class="vm.activePivot?'active':''" href="#/pivot" title="Donations By Territories"><img title="Donations By Territories" src="images/trend-icon.png" alt="" /> <em>Donations By Territories</em></a>
+            </li>
+            <li ng-click="vm.Redirect('trend')" ng-if="$root.user.role=='SuperAdmin'">
+                <a ng-class="vm.activeTrend?'active':''" href="#/trend" title="Trends"><img title="Trends" src="images/pivot-icon.png" alt="" /> <em>Trends</em></a>
+            </li>
+            <li ng-click="vm.Redirect('donorXL')">
+                <a ng-class="vm.activeDevExpress?'active':''" href="#/donorXL" title="DonorXL"><img height="20" width="20" title="Donations By Territories" src="images/DXR.png" alt="" /> <em>DonorXL</em></a>
+            </li>
+
+        </ul>
+    </div>
+</nav>

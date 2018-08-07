@@ -1,0 +1,162 @@
+<breadcrumb></breadcrumb>
+
+
+<div class="container">
+    <form name="editUserRoleForm" class="col-sm-12 Automated_Import_Left_rt_Padi_none" ng-class="{ 'has-error': vm.failed }">
+        <div class="row">
+            <p class="help-block" ng-if="vm.failed">
+                Something went wrong, please try again or contact administrator.
+            </p>
+            <p class="alert alert-success col-sm-12" ng-if="vm.successful">
+                Role(s) and Permissions saved successfully.
+            </p>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="form-group col-md-6" show-errors>
+                        <label for="usernameLabel" class="form-control-label"> Role </label>
+                        <div ng-class="vm.loaded?'loaddrpdwn':'loaddrpdwnalter'">
+                            <select name="qcRolesSelect" class="form-control" ng-required="true" ng-model="vm.selectedRoleId" ng-disabled="vm.loaded" title="Please Select Role" ng-options="item._id as item.title for item in vm.roles" ng-change="vm.fetchForUpdateRole()">
+                                <option value="">-- Please Select --</option>
+                            </select>
+                        </div>
+                        <div ng-if="vm.loaded" class="loaddrpdwnloader">
+                            <img class="loaddrpdwnimg" src="./assets/images/ajaxLoadersmall.gif">
+                        </div>
+                        <div ng-if="vm.loaded" class="loaddrpdwnclear">
+                        </div>
+                        <p class="help-block" ng-if="(editUserRoleForm.qcRolesSelect.$dirty || editUserRoleForm.qcRolesSelect.$touched) && editUserRoleForm.qcRolesSelect.$error.required">
+                            <i><b>Role</b></i> is required.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <button type="button" ng-click="vm.canSave = !vm.canSave" ng-if="!vm.canSave && vm.selectedRoleId" class="btn btn-info">Edit</button>
+                <button ng-if="vm.canSave && vm.selectedRoleId" ng-disabled="editUserRoleForm.$invalid" class="btn btn-success" ng-click="vm.saveRolePermissions()">Save</button>
+                <a class="btn btn-danger11" ui-sref="secure.admin.roles.list">Cancel</a>
+                <br />
+                <br />
+            </div>
+
+            <div ng-if="vm.selectedRoleId">
+                <div style="clear:both;"></div>
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="form-group col-md-6" show-errors>
+                            <label for="usernameLabel" class="form-control-label"> Module </label>
+                            <div ng-class="vm.loaded?'loaddrpdwn':'loaddrpdwnalter'">
+                                <select name="qcModuleSelect" class="form-control" autofocus ng-required="false" ng-model="vm.selectedModuleId" ng-disabled="vm.loaded" title="Please Select Module" ng-options="item._id as item.title for item in vm.modules | orderBy: 'title'" ng-change="vm.fetchForUpdateModule()">
+                                    <option value="">-- Please Select --</option>
+                                </select>
+                            </div>
+                            <div ng-if="vm.loaded" class="loaddrpdwnloader">
+                                <img class="loaddrpdwnimg" src="./assets/images/ajaxLoadersmall.gif">
+                            </div>
+                            <div ng-if="vm.loaded" class="loaddrpdwnclear">
+                            </div>
+                            <p class="help-block" ng-if="(editUserRoleForm.qcModuleSelect.$dirty) && editUserRoleForm.qcModuleSelect.$error.required">
+                                <i><b>Module</b></i> is required.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="clear:both;"></div>
+                <fieldset ng-disabled="!vm.canSave">
+                    <div ng-if="vm.selectedRoleId && vm.selectedModuleId">
+                        <div class="tablegrid" ng-if="vm.resources.schemas.length">
+                            <table class="table formtablewidth displaytable displaytable11 displaytable-nomargin">
+                                <thead class="thead-inverse tableborder">
+                                    <tr>
+                                        <td rowspan=2 class="col-sm-5 tableborder tablecontent">
+                                            <b>App</b>
+                                        </td>
+                                        <td class="text-center tableborder rowbackground" colspan="5">
+                                            <b>Permissions</b>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center columnbackground">
+                                            <label>
+                                                View <br /><input ng-change="vm.processAll('view',vm.resources.schemas,vm.checkUncheckAll.schemas)"
+                                                                  ng-model="vm.checkUncheckAll.schemas.view"
+                                                                  type="checkbox"
+                                                                  title="{{vm.titleMessege}}" />
+                                            </label>
+                                        </td>
+                                        <td class="text-center columnbackground">
+                                            <label>
+                                                Create <br /><input ng-change="vm.processAll('create',vm.resources.schemas,vm.checkUncheckAll.schemas)"
+                                                                    ng-model="vm.checkUncheckAll.schemas.create"
+                                                                    type="checkbox"
+                                                                    title="{{vm.titleMessege}}" />
+                                            </label>
+                                        </td>
+                                        <td class="text-center  columnbackground">
+                                            <label>
+                                                Edit <br /><input ng-change="vm.processAll('edit',vm.resources.schemas,vm.checkUncheckAll.schemas)"
+                                                                  ng-model="vm.checkUncheckAll.schemas.edit"
+                                                                  type="checkbox"
+                                                                  title="{{vm.titleMessege}}" />
+                                            </label>
+                                        </td>
+                                        <td class="text-center  columnbackground">
+                                            <label>
+                                                Review <br /><input ng-change="vm.processAll('review',vm.resources.schemas,vm.checkUncheckAll.schemas)"
+                                                                    ng-model="vm.checkUncheckAll.schemas.review"
+                                                                    type="checkbox"
+                                                                    title="{{vm.titleMessege}}" />
+                                            </label>
+                                        </td>
+                                        <td class="text-center editschema columnbackground">
+                                            <label>
+                                                Build App <br /><input ng-change="vm.processAll('editSchema',vm.resources.schemas,vm.checkUncheckAll.schemas)"
+                                                                        ng-model="vm.checkUncheckAll.schemas.editSchema"
+                                                                        type="checkbox"
+                                                                        title="{{vm.titleMessege}}" />
+                                            </label>
+                                        </td>
+
+                                    </tr>
+
+                                </thead>
+                                <tbody class="tableborder">
+                                    <tr class="tableborder" ng-model="vm.role.modules" ng-repeat="item in vm.resources.schemas | orderBy: 'title'">
+                                        <td scope="row" class="tableborder"> {{item.title}}</td>
+                                        <td class="text-center columnbackground">
+                                            <input type="checkbox" name="checkbox{$index}" ng-model="item.view" ng-change="vm.checkBoxCheck(item); vm.checkBoxCheckAll(vm.resources.schemas, vm.checkUncheckAll.schemas)" />
+                                        </td>
+                                        <td class="text-center">
+                                            <input type="checkbox" name="checkbox{$index}" ng-model="item.create" ng-change="vm.checkBoxCheck(item); vm.checkBoxCheckAll(vm.resources.schemas, vm.checkUncheckAll.schemas)" />
+                                        </td>
+                                        <td class="text-center columnbackground">
+                                            <input type="checkbox" name="checkbox{$index}" ng-model="item.edit" ng-change="vm.checkBoxCheck(item); vm.checkBoxCheckAll(vm.resources.schemas, vm.checkUncheckAll.schemas)" />
+                                        </td>
+                                        <td class="text-center">
+                                            <input type="checkbox" name="checkbox{$index}" ng-model="item.review" ng-change="vm.checkBoxCheck(item); vm.checkBoxCheckAll(vm.resources.schemas, vm.checkUncheckAll.schemas)" />
+                                        </td>
+                                        <td class="text-center columnbackground">
+                                            <input type="checkbox" name="checkbox{$index}" ng-model="item.editSchema" ng-change="vm.checkBoxCheck(item); vm.checkBoxCheckAll(vm.resources.schemas, vm.checkUncheckAll.schemas)" />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-sm-12" ng-if="vm.selectedRoleId">
+                <button type="button" ng-click="vm.canSave = !vm.canSave" ng-if="!vm.canSave" class="btn btn-info">Edit</button>
+                <button ng-if="vm.canSave" ng-disabled="editUserRoleForm.$invalid" class="btn btn-success" ng-click="vm.saveRolePermissions()">Save</button>
+                <a class="btn btn-danger11" ui-sref="secure.admin.roles.list">Cancel</a>
+                <br />
+                <br />
+            </div>
+        </div>
+        <br />
+    </form>
+
+</div>

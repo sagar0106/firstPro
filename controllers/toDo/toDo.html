@@ -1,0 +1,52 @@
+<div class="container">
+    <br>
+    <br>
+    <h1>To Do List</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Is Completed</th>
+                <th>Action</th>
+                <th>&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input class="form-control" ng-model="item.title"></td>
+                <td><input class="form-control" ng-model="item.description"></td>
+                <td>
+                    <select class="form-control" ng-model="item.isCompleted">
+                    <option>Yes</option>
+                    <option>No</option>
+                    </select>
+                </td>
+                </td>
+                <td><button class="btn btn-primary" ng-click="add()">Add/Update</button></td>
+                <td><button class="btn btn-info" ng-click="deselect()">Clear</button></td>
+            </tr>
+            <tr ng-class="{success: item.isSelected}" ng-repeat="item in itemList track by $index" ng-click="item.isSelected = !item.isSelected;selectRow(item, index)" style="cursor: move">
+                <td>{{item.title}}</td>
+                <td>{{item.description}}</td>
+                <td>{{item.isCompleted}}</td>
+                <td><button class=" btn btn-danger " ng-click="remove(item._id) ">Remove</button></td>
+                <td><button class="btn btn-warning " ng-click="edit(item._id) ">Edit</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="col-xs-6 ">
+        <div class="btn btn-info btn-lg btn-full-width ">
+            <span class="glyphicon glyphicon-menu-up " ng-click="moveItemUp(); ">Up</span>
+        </div>
+        <div class="btn btn-info btn-lg btn-full-width ">
+            <span class="glyphicon glyphicon-menu-down " ng-click="moveItemDown(); ">Down</span>
+        </div>
+    </div>
+    <!-- <div class="col-xs-6 ">
+
+    </div> -->
+</div>
+
+</div>
