@@ -2,6 +2,16 @@
 
 
 <div class="container">
+    <nav aria-label="breadcrumb" class="breadcrumb-nav-margin">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="#projects">Home</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+                Manage Permissions
+            </li>
+        </ol>
+    </nav>
     <form name="editUserRoleForm" class="col-sm-12 Automated_Import_Left_rt_Padi_none" ng-class="{ 'has-error': vm.failed }">
         <div class="row">
             <p class="help-block" ng-if="vm.failed">
@@ -69,7 +79,7 @@
                                 <thead class="thead-inverse tableborder">
                                     <tr>
                                         <td rowspan=2 class="col-sm-5 tableborder tablecontent">
-                                            <b>App</b>
+                                            <b>Project</b>
                                         </td>
                                         <td class="text-center tableborder rowbackground" colspan="5">
                                             <b>Permissions</b>
@@ -110,7 +120,7 @@
                                         </td>
                                         <td class="text-center editschema columnbackground">
                                             <label>
-                                                Build App <br /><input ng-change="vm.processAll('editSchema',vm.resources.schemas,vm.checkUncheckAll.schemas)"
+                                                Build Project <br /><input ng-change="vm.processAll('editSchema',vm.resources.schemas,vm.checkUncheckAll.schemas)"
                                                                         ng-model="vm.checkUncheckAll.schemas.editSchema"
                                                                         type="checkbox"
                                                                         title="{{vm.titleMessege}}" />

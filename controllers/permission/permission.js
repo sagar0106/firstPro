@@ -35,11 +35,7 @@
 
         function initiateOnRoleChange() {
             vm.resources = {
-                defaultResources: [],
-                commonResources: [],
-                modulerResources: [],
                 schemas: [],
-                reportTemplates: []
             }
         }
 
@@ -98,6 +94,9 @@
             }, 0);
             $http.get(config.apiUrl + 'role', { headers: { 'x-access-token': token } }).success(function(response) {
                 vm.roles = response.data;
+                $http.get(config.apiUrl + 'module', { headers: { 'x-access-token': token } }).success(function(res) {
+                    vm.modules = res.data;
+                });
             }).catch(function(err) {
                 // Handle error here
                 if (err.status == 401) {
@@ -109,8 +108,8 @@
         function fetchForUpdateRole() {
             if (vm.selectedRoleId) {
                 let token = JSON.parse(localStorage.getItem('token'));
-                $http.get(config.apiUrl + 'module', { headers: { 'x-access-token': token } }).success(function(response) {
-                    vm.modules = response.data;
+                $http.get(config.apiUrl + 'roles/' + vm.selectedRoleId, { headers: { 'x-access-token': token } }).success(function(response) {
+                    vm.role = response.data;
                 });
             }
         }
@@ -158,14 +157,13 @@
             vm.role.modules = (vm.modules || []).map(function(item) {
                 module = {};
                 module._id = item._id;
-                module.permissions = [].concat(vm.resources.defaultResources, vm.resources.commonResources, vm.resources.reportTemplates);
-
+                module.permissions = [];
                 if (item._id === vm.selectedModuleId) {
-                    module.permissions = (module.permissions || []).concat(vm.resources.modulerResources, vm.resources.schemas);
+                    module.permissions = (module.permissions || []).concat(vm.resources.schemas);
                 } else {
                     var currentPermissions = ((vm.role.modules || []).find(function(obj) { return obj._id == item._id }) || {}).permissions || [];
                     vm.oldSchemaAndModulerResource = (currentPermissions || []).filter(function(obj) {
-                        return obj.entityType === "moduler" || obj.entityType === "schemas";
+                        return obj.entityType === "schemas";
                     });
                     module.permissions = (module.permissions || []).concat(vm.oldSchemaAndModulerResource);
                 }
@@ -173,18 +171,29 @@
                 return module;
             });
 
-            vm.role
-                .save(false)
-                .then(function() {
-                    $window.scrollTo(0, 0);
-                    qc3Alert.alert('rolePermissions', function() {
-                        vm.canSave = false;
+            // vm.role
+            //     .save(false)
+            //     .then(function() {
+            //         $window.scrollTo(0, 0);
+            //         qc3Alert.alert('rolePermissions', function() {
+            //             vm.canSave = false;
 
-                        vm.successful = true;
-                        $timeout(function() {
-                            vm.successful = false;
-                        }, 5000);
-                    });
+            //             vm.successful = true;
+            //             $timeout(function() {
+            //                 vm.successful = false;
+            //             }, 5000);
+            //         });
+            //     })
+            let token = JSON.parse(localStorage.getItem('token'));
+
+            $http.patch(config.apiUrl + 'roles/' + vm.selectedRoleId, { headers: { 'x-access-token': token } }).success(function(response) {
+                    $window.scrollTo(0, 0);
+                    vm.canSave = false;
+
+                    vm.successful = true;
+                    $timeout(function() {
+                        vm.successful = false;
+                    }, 5000);
                 })
                 .catch(function(ex) {
                     $log.error(ex);
