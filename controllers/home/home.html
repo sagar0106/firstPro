@@ -1,0 +1,24 @@
+<div class="home-main">
+    <nav aria-label="breadcrumb" class="breadcrumb-nav-margin">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+                Home
+            </li>
+        </ol>
+    </nav>
+    <div>
+        <a class="box-bg-main-link" ng-click="reloadRoute()" href="#projects"><i class="glyphicon   glyphicon glyphicon-th "></i> PROJECTS</a>
+    </div>
+    <div>
+        <a class="box-bg-main-link" href="#import"><i class="glyphicon   glyphicon glyphicon-upload "></i> IMPORT</a>
+    </div>
+    <div>
+        <a class="box-bg-main-link" href="#reports"><i class="glyphicon   glyphicon glyphicon-indent-left"></i> REPORT</a>
+    </div>
+    <div ng-show="$root.user.role=='Admin'">
+        <a class="box-bg-main-link" href="#managePermissions"><i class="glyphicon   glyphicon glyphicon-screenshot "></i> MANAGE PERMISSIONS</a>
+    </div>
+    <div ng-show="$root.user.role=='Admin'">
+        <a class="box-bg-main-link" href="#users"><i class="glyphicon   glyphicon glyphicon-inbox"></i> MANAGE USERS</a>
+    </div>
+</div>

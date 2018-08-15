@@ -1,6 +1,19 @@
-<h1 ng-if="userId">My Profile</h1>
-<h1 ng-if="!userId">Register</h1>
 <div class="form-container">
+    <nav aria-label="breadcrumb" class="breadcrumb-nav-margin">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="#home">Home</a>
+            </li>
+            <li ng-if="userId" class="breadcrumb-item active" aria-current="page">
+                My Profile
+            </li>
+            <li ng-if="!userId" class="breadcrumb-item active" aria-current="page">
+                Register
+            </li>
+        </ol>
+    </nav>
+    <h1 ng-if="userId">My Profile</h1>
+    <h1 ng-if="!userId">Register</h1>
     <form method="post">
         <div class="form-group">
             <label for="firstName">First name</label>

@@ -36,7 +36,8 @@
         function initiateOnRoleChange() {
             vm.resources = {
                 schemas: [],
-            }
+            };
+            vm.selectedModuleId = '';
         }
 
         // function activate() {
@@ -106,10 +107,11 @@
         }
 
         function fetchForUpdateRole() {
+            initiateOnRoleChange();
             if (vm.selectedRoleId) {
                 let token = JSON.parse(localStorage.getItem('token'));
-                $http.get(config.apiUrl + 'roles/' + vm.selectedRoleId, { headers: { 'x-access-token': token } }).success(function(response) {
-                    vm.role = response.data;
+                $http.get(config.apiUrl + 'role/' + vm.selectedRoleId, { headers: { 'x-access-token': token } }).success(function(response) {
+                    vm.role = response;
                 });
             }
         }
@@ -130,19 +132,19 @@
                         };
                     }));
 
-                    // var existingSchemaPermission = ((vm.role.modules || []).find(function(obj) {
-                    //     return obj._id == vm.selectedModuleId;
-                    // }) || {}).permissions || [];
+                    var existingSchemaPermission = ((vm.role.modules || []).find(function(obj) {
+                        return obj._id == vm.selectedModuleId;
+                    }) || {}).permissions || [];
 
 
-                    // vm.resources.schemas.forEach(function(schema) {
-                    //     existingResource = {};
-                    //     existingResource = existingSchemaPermission.find(function(obj) { return obj._id == schema._id });
-                    //     if (existingResource) {
-                    //         existingResource.title = schema.title;
-                    //         angular.extend(schema, existingResource);
-                    //     }
-                    // });
+                    vm.resources.schemas.forEach(function(schema) {
+                        existingResource = {};
+                        existingResource = existingSchemaPermission.find(function(obj) { return obj._id == schema._id });
+                        if (existingResource) {
+                            existingResource.title = schema.title;
+                            angular.extend(schema, existingResource);
+                        }
+                    });
 
                     checkBoxCheckAll(vm.resources.schemas, vm.checkUncheckAll.schemas);
 
@@ -186,7 +188,7 @@
             //     })
             let token = JSON.parse(localStorage.getItem('token'));
 
-            $http.patch(config.apiUrl + 'roles/' + vm.selectedRoleId, { headers: { 'x-access-token': token } }).success(function(response) {
+            $http.patch(config.apiUrl + 'role/' + vm.selectedRoleId, vm.role, { headers: { 'x-access-token': token } }).success(function(response) {
                     $window.scrollTo(0, 0);
                     vm.canSave = false;
 
@@ -196,7 +198,6 @@
                     }, 5000);
                 })
                 .catch(function(ex) {
-                    $log.error(ex);
                     vm.failed = true;
                     $timeout(function() {
                         vm.failed = false;

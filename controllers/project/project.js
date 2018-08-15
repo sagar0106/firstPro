@@ -1,7 +1,7 @@
 (function() {
     'use strict';
     angular.module('myApp')
-        .controller('AppCtrl', ['$scope', '$http', '$location', 'config', function($scope, $http, $location, config) {
+        .controller('AppCtrl', ['$scope', '$http', '$location', 'config', '$rootScope', function($scope, $http, $location, config, $rootScope) {
 
             var refresh = function() {
                 let token = JSON.parse(localStorage.getItem('token'));
@@ -48,6 +48,11 @@
 
             $scope.deselect = function() {
                 $scope.item = "";
+            }
+
+            function checkPermission(data) {
+                var permissions = $rootscope.user.permissions;
+
             }
 
         }]);

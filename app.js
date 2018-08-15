@@ -47,6 +47,10 @@
                 templateUrl: 'controllers/register/register.html',
                 controller: 'registerCtrl'
             })
+            .when('/home', {
+                templateUrl: 'controllers/home/home.html',
+                controller: 'homeCtrl'
+            })
 
 
         .otherwise({ redirectTo: '/login' });

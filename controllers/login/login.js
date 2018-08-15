@@ -13,7 +13,7 @@
                         localStorage.setItem('userData', JSON.stringify(response.user));
                         $rootScope.user = response.user;
                         $rootScope.isLogin = true;
-                        $location.path("/projects");
+                        $location.path("/home");
                     }
                 });
             }
