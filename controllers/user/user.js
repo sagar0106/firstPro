@@ -38,5 +38,9 @@
                 $scope.item = "";
             }
 
+            $scope.goToLink = function() {
+                $location.path('/register');
+            }
+
         }]);
 })();

@@ -57,6 +57,11 @@ a {
     float: left;
 }
 
+.btn-right {
+    margin-left: 1090px;
+    margin-bottom: 6px;
+}
+
 .home-main .box-bg-main-link {
     width: 45%;
     margin: 0;

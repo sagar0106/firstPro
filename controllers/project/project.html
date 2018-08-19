@@ -10,7 +10,7 @@
         </ol>
     </nav>
     <h1>Project List</h1>
-
+    <button class="btn btn-primary btn-right" ng-click="showModal=true">Add</button>
     <table class="table">
         <thead>
             <tr>
@@ -20,11 +20,11 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
+            <!-- <tr>
                 <td><input class="form-control" ng-model="item.title"></td>
                 <td><button class="btn btn-primary" ng-click="add()">Add/Update</button></td>
                 <td><button class="btn btn-info" ng-click="deselect()">Clear</button></td>
-            </tr>
+            </tr> -->
             <tr ng-repeat="item in itemList">
                 <td><a href="#projects/{{item._id}}">{{item.title}}</a></td>
                 <td><button class="btn btn-danger" ng-click="remove(item._id)">Remove</button></td>
@@ -32,5 +32,19 @@
             </tr>
         </tbody>
     </table>
-
+    <modal visible="showModal">
+        <form role="form" novalidate name="noteform">
+            <div class="form-group">
+                <label>Project Title</label>
+                <!-- <textarea name="note" class="form-control" id="note" rows="3" ng-model="item.Note" cols="40" maxlength="200" ng-disabled="IsEdit"></textarea> -->
+                <input class="form-control" ng-model="item.title">
+                <label>Module</label>
+                <select name="qcModuleSelect" class="form-control" autofocus ng-required="true" ng-model="item.module" title="Please Select Module" ng-options="item._id as item.title for item in modules | orderBy: 'title'">
+                    <option value="">-- Please Select --</option>
+                </select>
+            </div>
+            <!-- <button type="button" class="btn btn-default btn-default2" ng-click="editNote(item.Note)">Edit</button> -->
+            <button type="button" class="btn btn-default btn-default2" ng-disabled="!item.title || !item.module" ng-click="add(item)">Add/Update</button>
+        </form>
+    </modal>
 </div>
